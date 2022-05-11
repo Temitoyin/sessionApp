@@ -1,12 +1,10 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router";
-import { logout, login, isLoggedIn } from "../../redux/Auth/authSlice";
+import React from "react";
+import { logout, isLoggedIn } from "../../redux/Auth/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styles from "./navigation.module.scss";
 
 const Navigation = ({ userName }) => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const isAuthenticated = useSelector(isLoggedIn);
   const handleLogout = () => {

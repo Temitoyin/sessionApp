@@ -1,17 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styles from "./userCard.module.scss";
 
 const UserCard = ({ user }) => {
-  const status = "active";
   let sessionUser = user && user[1];
-  useEffect(() => {
-    let mounted = true;
-
-    return () => {
-      mounted = false;
-    };
-  }, []);
-
   return (
     <div className={styles.userCard}>
       <div className={styles.userCard_text}>

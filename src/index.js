@@ -4,8 +4,7 @@ import { Provider } from "react-redux";
 import Dashboard from "./pages/Dashboard/dashboard";
 import { store } from "./redux/store";
 import Login from "./pages/Login/login";
-import App from "./App";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 
