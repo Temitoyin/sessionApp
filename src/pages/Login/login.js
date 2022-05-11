@@ -20,7 +20,7 @@ const Login = () => {
     return () => {
       mounted = false;
     };
-  }, [isAuthenticated]);
+  }, [isAuthenticated, history, storeUserName]);
   const handleLogin = (e) => {
     e.preventDefault();
     dispatch(login(usserName));
