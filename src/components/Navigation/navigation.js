@@ -39,12 +39,14 @@ const Navigation = ({ userName }) => {
             </svg>
           </div>
           <div className={styles.navigation__userInfo_logoutButton}>
-            {isAuthenticated && (
+            {isAuthenticated ? (
               <button onClick={() => handleLogout()}>Logout</button>
-            )}
+            ): 
             <button>
               <Link to="/login">SignIn with username</Link>
             </button>
+            }
+            
           </div>
         </div>
       </div>

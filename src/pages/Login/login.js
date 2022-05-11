@@ -14,6 +14,7 @@ const Login = () => {
 
   useEffect(() => {
     let mounted = true;
+    document.title = "Session App";
     mounted &&
       storeUserName &&
       storeUserName === sessionStorage.getItem("sessionId") &&
