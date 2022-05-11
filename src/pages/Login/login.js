@@ -17,7 +17,7 @@ const Login = () => {
     mounted &&
       storeUserName &&
       storeUserName === sessionStorage.getItem("sessionId") &&
-      history(`/dashboard/${storeUserName}`);
+      history(`/`);
     return () => {
       mounted = false;
     };

@@ -16,8 +16,7 @@ root.render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Dashboard />}></Route>
-          <Route path="/login" element={<Login />} />
-          <Route path="/dashboard/:username" element={<Dashboard />}></Route>
+          <Route exact path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </Provider>
