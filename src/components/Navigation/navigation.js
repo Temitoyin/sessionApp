@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { logout, isLoggedIn } from "../../redux/Auth/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styles from "./navigation.module.scss";
 
 const Navigation = ({ userName }) => {
+  const [sessionUser, setSessionUser] = useState("");
   const dispatch = useDispatch();
   const isAuthenticated = useSelector(isLoggedIn);
   const handleLogout = () => {
     dispatch(logout(userName));
   };
+  useEffect(() => {
+    let currentsessionUser = sessionStorage.getItem("sessionId");
+    setSessionUser(currentsessionUser);
+  }, []);
   return (
     <div className={styles.wrapper}>
       <div className={styles.navigation}>
@@ -39,14 +44,13 @@ const Navigation = ({ userName }) => {
             </svg>
           </div>
           <div className={styles.navigation__userInfo_logoutButton}>
-            {isAuthenticated ? (
+            {isAuthenticated && userName === sessionUser ? (
               <button onClick={() => handleLogout()}>Logout</button>
-            ): 
-            <button>
-              <Link to="/login">SignIn with username</Link>
-            </button>
-            }
-            
+            ) : (
+              <button>
+                <Link to="/login">SignIn with username</Link>
+              </button>
+            )}
           </div>
         </div>
       </div>

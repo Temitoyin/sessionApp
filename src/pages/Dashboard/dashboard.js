@@ -26,17 +26,18 @@ export default function Dashboard() {
     if (sessionUpdate !== sessionupdateMade) {
       setSessionUpdateMade(sessionUpdate);
     }
-  }, 5000);
+  }, 1000);
   const updateValue = updateMade === "true";
   useEffect(() => {
     let mounted = true;
     if (mounted) {
       userName.current = sessionStorage.getItem("sessionId");
       const allLoggedInUsers = JSON.parse(localStorage.getItem("allusers"));
-      if (userName.current) {
+      const currentUser =
+        allLoggedInUsers && allLoggedInUsers[`${userName.current}`];
+      if (userName.current && currentUser) {
         setUserName(userName.current);
         document.title = userName.current;
-        const currentUser = allLoggedInUsers[`${userName.current}`];
         dispatch(persistState(currentUser));
         window.name = userName.current;
       } else if (allLoggedInUsers) {
@@ -64,7 +65,9 @@ export default function Dashboard() {
     const allLoggedInUsers = JSON.parse(localStorage.getItem("allusers"));
     const currentUser =
       allLoggedInUsers && allLoggedInUsers[`${userName.current}`];
-    if (currentUser || usserName) {
+    let sessionUser = sessionStorage.getItem("sessionId");
+
+    if (currentUser && usserName === sessionUser) {
       window.addEventListener("visibilitychange", function (event) {
         if (document.visibilityState === "visible") {
           dispatch(

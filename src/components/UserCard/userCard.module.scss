@@ -1,50 +1,54 @@
 .userCard {
-    padding: 13px 0px;
-    height: 90px;
-    display: grid;
-    align-items: center;
-    grid-template-columns: 60% 20% 20%;
-    border: 1px solid rgba(176, 186, 201, 0.2);
-    margin: 8px 0px;
-    &_text {
-      padding-left: 39px;
-      h1 {
-        font-size: 16px;
-        font-weight: 400;
-        margin-bottom: 10px;
-      }
-      p {
-        font-size: 13px;
-        color: color(licorice);
-      }
+  padding: 13px 0px;
+  height: 90px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 60% 20% 20%;
+  border: 1px solid rgba(176, 186, 201, 0.2);
+  margin: 8px 0px;
+  &_text {
+    padding-left: 39px;
+    h1 {
+      font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 10px;
     }
-    &__status {
-      border-right: 1px solid rgba(176, 186, 201, 0.2);
-      border-left: 1px solid rgba(176, 186, 201, 0.2);
-      p {
-        width: 63px;
-        height: 33px;
-        font-size: 13px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        margin: 0 auto;
-        border-radius: 4px;
-      }
-      .open {
-        color: color(DarkPastelGreen);
-        background-color: rgba(0, 174, 38, 0.1);
-      }
-      .close {
-        color: #ffca0e !important;
-        background-color: rgba(255, 202, 14, 0.1);
-      }
+    p {
+      font-size: 13px;
+      color: color(licorice);
     }
-    &__more {
+  }
+  &__status {
+    border-right: 1px solid rgba(176, 186, 201, 0.2);
+    border-left: 1px solid rgba(176, 186, 201, 0.2);
+    p {
+      width: 63px;
+      height: 33px;
+      font-size: 13px;
       display: flex;
       justify-content: center;
       align-items: center;
+      text-align: center;
+      margin: 0 auto;
+      border-radius: 4px;
+    }
+    .open {
+      color: color(DarkPastelGreen);
+      background-color: rgba(0, 174, 38, 0.1);
+    }
+    .close {
+      color: #ffca0e !important;
+      background-color: rgba(255, 202, 14, 0.1);
     }
   }
-  
+  &__more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+      border: 1px solid lightblue;
+      background-color: white;
+      padding: 6px 8px;
+    }
+  }
+}

@@ -47,8 +47,8 @@ export const authSlice = createSlice({
 
       setTimeout(() => {
         localStorage.setItem("updateMade", "false");
-        sessionStorage.setItem("updateMade", "false");
-      }, 4000);
+        // sessionStorage.setItem("updateMade", "false");
+      }, 2000);
     },
     persistState: (state, action) => {
       state.userName = action.payload.userName;
@@ -56,7 +56,7 @@ export const authSlice = createSlice({
       state.loggedIn = action.payload.loggedIn;
     },
     logout: (state, action) => {
-      sessionStorage.removeItem("sessionId");
+      // sessionStorage.removeItem("sessionId");
       localStorage.removeItem("logedInUser");
       let userData = JSON.parse(localStorage.getItem("allusers"));
       delete userData[`${action.payload}`];
@@ -68,22 +68,48 @@ export const authSlice = createSlice({
       state.userName = "";
       setTimeout(() => {
         localStorage.setItem("updateMade", "false");
-      }, 4000);
+      }, 2000);
     },
     setPresence: (state, action) => {
       let userData = JSON.parse(localStorage.getItem("allusers"));
-      userData[`${action.payload.name}`].status = action.payload.status;
+      // eslint-disable-next-line
+      let status =
+        userData[`${action.payload.name}`] &&
+        userData[`${action.payload.name}`].status;
+      // eslint-disable-next-line
+      status = action.payload.status;
       localStorage.setItem("allusers", JSON.stringify(userData));
       localStorage.setItem("allusers", localStorage.getItem("allusers"));
       sessionStorage.setItem("updateMade", "true");
       setTimeout(() => {
         sessionStorage.setItem("updateMade", "false");
-      }, 4000);
+      }, 2000);
+    },
+    logoutOtherUser: (state, action) => {
+      let userData = JSON.parse(localStorage.getItem("allusers"));
+      delete userData[`${action.payload}`];
+      localStorage.setItem("allusers", JSON.stringify(userData));
+      sessionStorage.setItem("allusers", JSON.stringify(userData));
+      localStorage.setItem("users", JSON.stringify(Object.keys(userData)));
+      localStorage.setItem("updateMade", "true");
+      let sessionval = sessionStorage.setItem("sessionId", action.payload);
+
+      if (state.userName === action.payload) {
+        state.loggedIn = false;
+        state.userName = "";
+      } else if (sessionval !== state.userName) {
+        state.loggedIn = true;
+      }
+
+      setTimeout(() => {
+        localStorage.setItem("updateMade", "false");
+      }, 2000);
     },
   },
 });
 
-export const { login, logout, persistState, setPresence } = authSlice.actions;
+export const { login, logout, persistState, setPresence, logoutOtherUser } =
+  authSlice.actions;
 export const isLoggedIn = (state) => state.auth.loggedIn;
 export const userName = (state) => state.auth.userName;
 export default authSlice.reducer;
