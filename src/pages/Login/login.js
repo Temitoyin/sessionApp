@@ -15,6 +15,7 @@ const Login = () => {
   useEffect(() => {
     let mounted = true;
     mounted &&
+      storeUserName &&
       storeUserName === sessionStorage.getItem("sessionId") &&
       history(`/dashboard/${storeUserName}`);
     return () => {

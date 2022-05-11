@@ -27,7 +27,7 @@ export default function Dashboard() {
     if (mounted) {
       userName.current = sessionStorage.getItem("sessionId");
       const allLoggedInUsers = JSON.parse(localStorage.getItem("allusers"));
-      if (userName) {
+      if (userName.current) {
         setUserName(userName.current);
         document.title = userName.current;
         const currentUser = allLoggedInUsers[`${userName.current}`];
