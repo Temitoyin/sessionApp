@@ -1,6 +1,12 @@
-# Getting Started with Create React App and Redux
+# Session App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+This project is a pure front-end webapp that has a couple of features: 
+
+- The signed in user should remain signed on even with a browser refresh
+- A user can be signed on with a different username in another tab of the same browser
+- The application is able to manage the sessions of all users
+- When a new tab is opened, it should start with the state of the last active signed on username on the browser
+- Signing in with a username that is already active, should drag focus to the tab with that username.
 
 ## Available Scripts
 
