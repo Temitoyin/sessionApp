@@ -1,0 +1,52 @@
+.wrapper {
+    background-color: whitesmoke;
+    width: 100%;
+    .navigation {
+      padding: 0px 170px;
+      max-width: 1440px;
+      margin: 0 auto;
+      height: 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &__userInfo {
+        display: flex;
+        align-items: center;
+        color: purple;
+        position: relative;
+        border-left: 1px solid lightblue;
+        p {
+          font-size: 14px;
+          font-weight: 700;
+          margin-right: 14px;
+          padding-left: 15px;
+        }
+        .iconWrapper {
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          border: 1.5px solid lightblue;
+          position: relative;
+          svg {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+        &_logoutButton {
+          margin-left: 50px;
+          button {
+            border: 1px solid lightblue;
+            background-color: white;
+            padding: 6px 8px;
+          }
+          button:first-child {
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+  
