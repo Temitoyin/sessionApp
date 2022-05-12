@@ -68,6 +68,7 @@ export default function Dashboard() {
     let sessionUser = sessionStorage.getItem("sessionId");
 
     if (currentUser && usserName === sessionUser) {
+      console.log(currentUser, usserName === sessionUser, "changeesx");
       window.addEventListener("visibilitychange", function (event) {
         if (document.visibilityState === "visible") {
           dispatch(
@@ -93,7 +94,7 @@ export default function Dashboard() {
               })
             );
           }
-        }, 30000);
+        }, 60000);
       });
     }
   }, [usserName, dispatch]);

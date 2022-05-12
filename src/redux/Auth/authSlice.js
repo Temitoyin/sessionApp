@@ -73,16 +73,14 @@ export const authSlice = createSlice({
     setPresence: (state, action) => {
       let userData = JSON.parse(localStorage.getItem("allusers"));
       // eslint-disable-next-line
-      let status =
-        userData[`${action.payload.name}`] &&
-        userData[`${action.payload.name}`].status;
-      // eslint-disable-next-line
-      status = action.payload.status;
+      if (userData[`${action.payload.name}`]) {
+        userData[`${action.payload.name}`].status = action.payload.status;
+        localStorage.setItem("updateMade", "true");
+      }
       localStorage.setItem("allusers", JSON.stringify(userData));
-      localStorage.setItem("allusers", localStorage.getItem("allusers"));
-      sessionStorage.setItem("updateMade", "true");
+      sessionStorage.setItem("allusers", localStorage.getItem("allusers"));
       setTimeout(() => {
-        sessionStorage.setItem("updateMade", "false");
+        localStorage.setItem("updateMade", "false");
       }, 2000);
     },
     logoutOtherUser: (state, action) => {
