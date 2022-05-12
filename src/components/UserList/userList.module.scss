@@ -1,45 +1,52 @@
 .userList {
-    width: 1104px;
-    box-shadow: 0px 0px 8px 0px #00000014;
-    padding: 32px 94px 38px 94px;
-    margin: 0 auto;
-    &__heading {
+  width: 1104px;
+  box-shadow: 0px 0px 8px 0px #00000014;
+  padding: 32px 94px 38px 94px;
+  margin: 50px auto 0 auto;
+
+  &__heading {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 29px;
+    h1 {
+      font-size: 20px;
+      font-weight: 400;
+    }
+  }
+  &__select {
+    select {
+      border: 1px solid darkcyan;
+      border-radius: 4px;
+      padding: 10px 16px;
+      color: darkcyan;
+      font-size: 12px;
+    }
+  }
+  &__main {
+    .header {
+      display: grid;
+      background-color: lightblue;
+      height: 40px;
       align-items: center;
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 29px;
-      h1 {
-        font-size: 20px;
-        font-weight: 400;
+      grid-template-columns: 60% 20% 20%;
+      &__title {
+        padding-left: 39px;
       }
-    }
-    &__select {
-      select {
-        border: 1px solid darkcyan;
-        border-radius: 4px;
-        padding: 10px 16px;
-        color: darkcyan;
-        font-size: 12px;
+
+      &__status {
+        margin: 0 auto;
       }
-    }
-    &__main {
-      .header {
-        display: grid;
-        background-color: lightblue;
-        height: 40px;
-        align-items: center;
-        grid-template-columns: 60% 20% 20%;
-        &__title {
-          padding-left: 39px;
-        }
-  
-        &__status {
-          margin: 0 auto;
-        }
-        &__actions {
-          margin: 0 auto;
-        }
+      &__actions {
+        margin: 0 auto;
       }
     }
   }
-  
+}
+
+@media only screen and (max-width: 1024px) {
+  .userList {
+    width: 100%;
+    padding: 32px 8px 38px 8px;
+  }
+}

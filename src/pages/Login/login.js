@@ -33,9 +33,6 @@ const Login = () => {
       <div className={styles.mainWrapper}>
         <div className={styles.wrapper}>
           <div className={styles.signIn}>
-            <div className={styles.signIn__logo}>
-              {/* <Icon name="logo" /> */}
-            </div>
             <div className={styles.signIn__header}>
               <h1>Sign In</h1>
             </div>

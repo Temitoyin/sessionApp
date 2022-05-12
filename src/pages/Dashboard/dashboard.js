@@ -83,7 +83,7 @@ export default function Dashboard() {
             dispatch(
               setPresence({
                 name: (currentUser && currentUser.userName) || usserName,
-                status: "inactive",
+                status: "idle",
               })
             );
           } else {
