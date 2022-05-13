@@ -25,7 +25,13 @@ const Login = () => {
   }, [isAuthenticated, history, storeUserName]);
   const handleLogin = (e) => {
     e.preventDefault();
-    dispatch(login(usserName));
+    const allLoggedInUsers = JSON.parse(localStorage.getItem("allusers"));
+    const currentUser = allLoggedInUsers && allLoggedInUsers[`${usserName}`];
+    if (currentUser) {
+      alert("user already logged in, check open tabs");
+    } else {
+      dispatch(login(usserName));
+    }
   };
 
   return (
