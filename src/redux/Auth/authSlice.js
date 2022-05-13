@@ -47,7 +47,6 @@ export const authSlice = createSlice({
 
       setTimeout(() => {
         localStorage.setItem("updateMade", "false");
-        // sessionStorage.setItem("updateMade", "false");
       }, 2000);
     },
     persistState: (state, action) => {
@@ -56,7 +55,6 @@ export const authSlice = createSlice({
       state.loggedIn = action.payload.loggedIn;
     },
     logout: (state, action) => {
-      // sessionStorage.removeItem("sessionId");
       localStorage.removeItem("logedInUser");
       let userData = JSON.parse(localStorage.getItem("allusers"));
       delete userData[`${action.payload}`];

@@ -10,10 +10,9 @@ export default function Dashboard() {
   const [usserName, setUserName] = useState("");
   const [updateMade, setUpdateMade] = useState("false");
   const [sessionupdateMade, setSessionUpdateMade] = useState("false");
-
   const [allUsers, setAllUsers] = useState([]);
   const dispatch = useDispatch();
-
+  let presenceTimeout = useRef();
   let updates;
   let sessionUpdate;
   let userName = useRef();
@@ -66,9 +65,9 @@ export default function Dashboard() {
     const currentUser =
       allLoggedInUsers && allLoggedInUsers[`${userName.current}`];
     let sessionUser = sessionStorage.getItem("sessionId");
+    clearTimeout(presenceTimeout.current);
 
     if (currentUser && usserName === sessionUser) {
-      console.log(currentUser, usserName === sessionUser, "changeesx");
       window.addEventListener("visibilitychange", function (event) {
         if (document.visibilityState === "visible") {
           dispatch(
@@ -78,7 +77,7 @@ export default function Dashboard() {
             })
           );
         }
-        setTimeout(() => {
+        presenceTimeout.current = setTimeout(() => {
           if (document.hidden) {
             dispatch(
               setPresence({
